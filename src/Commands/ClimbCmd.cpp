@@ -30,15 +30,19 @@ void ClimbCmd::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ClimbCmd::Execute() {
-	if (m_Mode==1)
-		Robot::climb->SwitchFalse();
-	if (m_Mode==0)
-		Robot::climb->SwitchTrue();
+	if (Robot::oi->getStick()->GetRawButton(11)){
+		if(m_Mode==0){
+			Robot::climb->Switch1();
+		}
+		else if (m_Mode==1){
+			Robot::climb->Switch2();
+		}
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ClimbCmd::IsFinished() {
-    return false;
+    return true;
 }
 
 // Called once after isFinished returns true

@@ -46,10 +46,14 @@ void Climb::Periodic() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void Climb::SwitchTrue(){
+void Climb::SwitchForward(){
 	dSole->Set(frc::DoubleSolenoid::Value::kForward);
 }
 
-void Climb::SwitchFalse() {
+void Climb::SwitchOff() {
+	dSole->Set(frc::DoubleSolenoid::Value::kOff);
+}
+
+void Climb::SwitchReverse() {
 	dSole->Set(frc::DoubleSolenoid::Value::kReverse);
 }

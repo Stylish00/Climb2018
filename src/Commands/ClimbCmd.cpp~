@@ -31,9 +31,11 @@ void ClimbCmd::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ClimbCmd::Execute() {
 	if (m_Mode==1)
-		Robot::climb->SwitchFalse();
+		Robot::climb->SwitchOff();
 	if (m_Mode==0)
-		Robot::climb->SwitchTrue();
+		Robot::climb->SwitchForward();
+	if (m_Mode==2)
+		Robot::climb->SwitchReverse();
 }
 
 // Make this return true when this Command no longer needs to run execute()
